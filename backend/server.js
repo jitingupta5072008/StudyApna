@@ -20,6 +20,14 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+  // Serve static files from React app
+  app.use(express.static(path.join(_dirname, "/frontend/dist")));
+
+  // Serve index.html for any other requests (for React Router)
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(_dirname, "frontend","dist","index.html"));
+  });
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
   //   useNewUrlParser: true,
@@ -27,7 +35,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.log(err));
-
+ 
 //route
 app.post('/register', async (req, res) => {
   const { email, password } = req.body;
@@ -208,15 +216,15 @@ app.get("/watch-video/:id", async (req, res) => {
   }
 });
 
-if (process.env.NODE_ENV === 'production') {
-  // Serve static files from React app
-  app.use(express.static(path.join(_dirname, "/frontend/dist")));
+// if (process.env.NODE_ENV === 'production') {
+//   // Serve static files from React app
+//   app.use(express.static(path.join(_dirname, "/frontend/dist")));
 
-  // Serve index.html for any other requests (for React Router)
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(_dirname, "frontend","dist","index.html"));
-  });
-}
+//   // Serve index.html for any other requests (for React Router)
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(_dirname, "frontend","dist","index.html"));
+//   });
+// }
 
 
 // Start the server
