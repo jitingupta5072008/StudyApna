@@ -5,7 +5,7 @@ const Card = () => {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
-        axios.get("https://studyapna.vercel.app/classes").then((response) => {
+        axios.get("https://studyapna.onrender.com/classes").then((response) => {
           setClasses(response.data);
         });
       }, []);
@@ -24,7 +24,7 @@ const Card = () => {
                 {classes.length === 0 ? (
                     <p>not a...</p>
                 ) : (
-                    classes.map((data, index) => (
+                    classes.slice().reverse().map((data, index) => (
                         <div className="translate-y-0 opacity-100 transition-all duration-700 ease-out" key={index} style={{ transitionDelay: '200ms' }}>
                             <Link to={`/subjects/${data._id}`}>
                                 <div className="group relative">

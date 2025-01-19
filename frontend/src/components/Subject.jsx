@@ -9,7 +9,7 @@ const Subject = () => {
     const id = useParams().id;
 
     useEffect(() => {
-        axios.get(`https://studyapna.vercel.app/subjects/${id}`).then((response) => {
+        axios.get(`https://studyapna.onrender.com/subjects/${id}`).then((response) => {
             setSubjects(response.data);
         });
     }, [id]);
