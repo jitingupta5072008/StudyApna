@@ -2,8 +2,8 @@
     "version": 2,
     "builds": [
       {
-        "src": "frontend/package.json",
-        "use": "@vercel/react"
+        "src": "frontend/build/**",
+        "use": "@vercel/static"
       },
       {
         "src": "backend/index.js",
