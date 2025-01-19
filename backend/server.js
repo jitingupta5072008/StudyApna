@@ -59,7 +59,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
-app.post('/api/login', async (req, res) => {
+app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -84,7 +84,7 @@ app.post('/api/login', async (req, res) => {
 });
 
 
-app.post('/api/addclass', async (req, res) => {
+app.post('/addclass', async (req, res) => {
   const { emoji, name } = req.body;
   try {
     const Classs = new Class({ emoji, name });
@@ -98,7 +98,7 @@ app.post('/api/addclass', async (req, res) => {
 
 
 // Add a Class
-app.post("/api/classes", async (req, res) => {
+app.post("/classes", async (req, res) => {
   const { name } = req.body;
   try {
     const newClass = new Class({ name });
@@ -110,7 +110,7 @@ app.post("/api/classes", async (req, res) => {
 });
 
 // Add a Subject
-app.post("/api/subjects", async (req, res) => {
+app.post("/subjects", async (req, res) => {
   const { name, classId,teacher } = req.body;
   try {
     const newSubject = new Subject({ name, classId,teacher });
@@ -122,7 +122,7 @@ app.post("/api/subjects", async (req, res) => {
 });
 
 // Add a Video
-app.post("/api/videos", async (req, res) => {
+app.post("/videos", async (req, res) => {
   const { title, url, chapterId,thumbnail } = req.body;
   try {
     const newVideo = new Video({ title, url, chapterId,thumbnail });
@@ -135,7 +135,7 @@ app.post("/api/videos", async (req, res) => {
 });
 
 //Add a chapter
-app.post("/api/chapters", async (req, res) => {
+app.post("/chapters", async (req, res) => {
   const { name, subjectId } = req.body;
   try {
     const newChapter = new Chapter({ name, subjectId });
@@ -148,7 +148,7 @@ app.post("/api/chapters", async (req, res) => {
 
 
 // Get All Classes
-app.get("/api/classes", async (req, res) => {
+app.get("/classes", async (req, res) => {
   try {
     const classes = await Class.find();
     res.status(200).json(classes);
@@ -158,7 +158,7 @@ app.get("/api/classes", async (req, res) => {
 });
 
 // Get Subjects by Class
-app.get("/api/subjects/:classId", async (req, res) => {
+app.get("/subjects/:classId", async (req, res) => {
   const { classId } = req.params;
   try {
     const subjects = await Subject.find({ classId }).populate("classId");
@@ -169,7 +169,7 @@ app.get("/api/subjects/:classId", async (req, res) => {
 });
 
 // Get Chapter
-app.get("/api/chapters/:subjectId", async (req, res) => {
+app.get("/chapters/:subjectId", async (req, res) => {
   const { subjectId } = req.params;
   try {
     const chapters = await Chapter.find({ subjectId });
@@ -179,7 +179,7 @@ app.get("/api/chapters/:subjectId", async (req, res) => {
   }
 })
 
-app.get("/api/videos/:id", async (req, res) => {
+app.get("/videos/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -196,7 +196,7 @@ app.get("/api/videos/:id", async (req, res) => {
     res.status(500).json({ message: "Failed to fetch videos. Please try again later." });
   }
 });
-app.get("/api/watch-video/:id", async (req, res) => {
+app.get("/watch-video/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
