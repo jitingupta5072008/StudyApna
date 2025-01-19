@@ -11,7 +11,7 @@ const Video = () => {
   useEffect(() => {
     // Fetch videos for the given chapterId
     axios
-      .get(`http://localhost:5000/videos/${id}`)
+      .get(`https://studyapna.vercel.app/videos/${id}`)
       .then((response) => {
         setVideos(response.data);
         setLoading(false);

@@ -9,7 +9,7 @@ const AddSubject = () => {
 
   // Fetch all classes
   useEffect(() => {
-    axios.get("http://localhost:5000/classes").then((response) => {
+    axios.get("https://studyapna.vercel.app/classes").then((response) => {
       setClasses(response.data);
     });
   }, []);
@@ -17,7 +17,7 @@ const AddSubject = () => {
   // Handle form submission
   const handleAddSubject = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/subjects", { name: subjectName, classId, teacher: teacherName })
+    axios.post("https://studyapna.vercel.app/subjects", { name: subjectName, classId, teacher: teacherName })
       .then((response) => {
         console.log(response);
         alert("Subject added successfully!");

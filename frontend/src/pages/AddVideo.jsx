@@ -14,7 +14,7 @@ const AddVideo = () => {
 
   // Fetch all classes on component load
   useEffect(() => {
-    axios.get("http://localhost:5000/classes").then((response) => {
+    axios.get("https://studyapna.vercel.app/classes").then((response) => {
       setClasses(response.data);
     });
   }, []);
@@ -23,7 +23,7 @@ const AddVideo = () => {
   useEffect(() => {
     if (selectedClass) {
       axios
-        .get(`http://localhost:5000/subjects/${selectedClass}`)
+        .get(`https://studyapna.vercel.app/subjects/${selectedClass}`)
         .then((response) => {
           setSubjects(response.data);
           setChapters([]); // Clear chapters when class changes
@@ -40,7 +40,7 @@ const AddVideo = () => {
   useEffect(() => {
     if (selectedSubject) {
       axios
-        .get(`http://localhost:5000/chapters/${selectedSubject}`)
+        .get(`https://studyapna.vercel.app/chapters/${selectedSubject}`)
         .then((response) => {
           setChapters(response.data);
           setSelectedChapter("");
@@ -60,7 +60,7 @@ const AddVideo = () => {
     }
 
     axios
-      .post("http://localhost:5000/videos", {
+      .post("https://studyapna.vercel.app/videos", {
         title: videoTitle,
         url: videoUrl,
         thumbnail: videoThumbnail,

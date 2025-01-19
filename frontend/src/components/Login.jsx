@@ -11,7 +11,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-        const response = await axios.post('http://localhost:5000/login', { email, password });
+        const response = await axios.post('https://studyapna.vercel.app/login', { email, password });
         console.log(response);
         localStorage.setItem('token', response.data.token);
         alert('Login successful!');

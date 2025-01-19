@@ -8,7 +8,7 @@ const Chapter = () => {
   const [chapters, setChapters] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/chapters/${id}`).then((response) => {
+    axios.get(`https://studyapna.vercel.app/chapters/${id}`).then((response) => {
       setChapters(response.data);
     });
   }, [id]);

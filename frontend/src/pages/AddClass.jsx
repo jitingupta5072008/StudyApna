@@ -10,7 +10,7 @@ const AddClass = () => {
     const AddCard = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/addclass', { emoji, name })
+            const res = await axios.post('https://studyapna.vercel.app/addclass', { emoji, name })
             alert(res.data.message);
             navigate('/')
         } catch (error) {
