@@ -5,7 +5,7 @@ const Card = () => {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
-        axios.get("https://studyapna.vercel.app/api/classes").then((response) => {
+        axios.get("https://studyapna.vercel.app/classes").then((response) => {
           setClasses(response.data);
         });
       }, []);
