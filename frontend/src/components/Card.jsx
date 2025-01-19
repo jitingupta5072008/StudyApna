@@ -24,7 +24,7 @@ const Card = () => {
                 {classes.length === 0 ? (
                     <p>not a...</p>
                 ) : (
-                    classes.slice().reverse().map((data, index) => (
+                    classes.map((data, index) => (
                         <div className="translate-y-0 opacity-100 transition-all duration-700 ease-out" key={index} style={{ transitionDelay: '200ms' }}>
                             <Link to={`/subjects/${data._id}`}>
                                 <div className="group relative">
