@@ -10,7 +10,7 @@ const AddChapter = () => {
 
   // Fetch all classes on component load
   useEffect(() => {
-    axios.get("https://studyapna.vercel.app/classes").then((response) => {
+    axios.get("https://studyapna.vercel.app/api/classes").then((response) => {
       setClasses(response.data);
     });
   }, []);
@@ -19,7 +19,7 @@ const AddChapter = () => {
   useEffect(() => {
     if (selectedClass) {
       axios
-        .get(`https://studyapna.vercel.app/subjects/${selectedClass}`)
+        .get(`https://studyapna.vercel.app/api/subjects/${selectedClass}`)
         .then((response) => {
           setSubjects(response.data);
         });
@@ -38,7 +38,7 @@ const AddChapter = () => {
     }
 
     axios
-      .post("https://studyapna.vercel.app/chapters", {
+      .post("https://studyapna.vercel.app/api/chapters", {
         name: chapterName,
         subjectId: selectedSubject,
       })
