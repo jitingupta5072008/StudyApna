@@ -27,8 +27,8 @@ const App = () => {
           <Route path="/subjects/:id" element={<Subject />} />
           <Route path="/video/:id" element={<Video />} />
 
-          <Route path='/login' element={<Login/>} />
-          <Route path='/watch-video/:id' element={<WatchVideo/>} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/watch-video/:id' element={<WatchVideo />} />
 
           <Route path='/admin/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="admin/add-class" element={<ProtectedRoute><AddClass /></ProtectedRoute>} />

@@ -19,15 +19,20 @@ app.use(cors());
 app.use(express.json());
 
 // Serve static files from React app (after build)
-app.use(express.static(path.join(_dirname, "/frontend/dist")))
-app.get('*',(_,res)=>{
-    res.sendFile(path.resolve(_dirname,"frontend","dist","index.html"));
+// app.use(express.static(path.join(_dirname, "/frontend/dist")))
+// app.get('*',(_,res)=>{
+//     res.sendFile(path.resolve(__dirname,"frontend","dist","index.html"));
+// })
+
+app.get('/',()=>{
+    res.send('Api Working now')
 })
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
 })
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.log(err));
