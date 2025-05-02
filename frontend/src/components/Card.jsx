@@ -5,7 +5,7 @@ const Card = () => {
     const [classes, setClasses] = useState([]);
 
     useEffect(() => {
-        axios.get("https://studyapna.onrender.com/classes").then((response) => {
+        axios.get("https://studyapna-backend.onrender.com/classes").then((response) => {
           setClasses(response.data);
         });
       }, []);

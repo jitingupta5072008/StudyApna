@@ -10,7 +10,7 @@ const AddChapter = () => {
 
   // Fetch all classes on component load
   useEffect(() => {
-    axios.get("https://studyapna.onrender.com/classes").then((response) => {
+    axios.get("https://studyapna-backend.onrender.com/classes").then((response) => {
       setClasses(response.data);
     });
   }, []);
@@ -19,7 +19,7 @@ const AddChapter = () => {
   useEffect(() => {
     if (selectedClass) {
       axios
-        .get(`https://studyapna.onrender.com/subjects/${selectedClass}`)
+        .get(`https://studyapna-backend.onrender.com/subjects/${selectedClass}`)
         .then((response) => {
           setSubjects(response.data);
         });
@@ -38,7 +38,7 @@ const AddChapter = () => {
     }
 
     axios
-      .post("https://studyapna.onrender.com/chapters", {
+      .post("https://studyapna-backend.onrender.com/chapters", {
         name: chapterName,
         subjectId: selectedSubject,
       })

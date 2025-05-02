@@ -24,8 +24,8 @@ app.use(express.json());
 //     res.sendFile(path.resolve(__dirname,"frontend","dist","index.html"));
 // })
 
-app.get('/',()=>{
-    res.send('Api Working now')
+app.get('/',(req,res)=>{
+  res.send("API Working")
 })
 
 

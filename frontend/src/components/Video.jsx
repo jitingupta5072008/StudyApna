@@ -11,7 +11,7 @@ const Video = () => {
   useEffect(() => {
     // Fetch videos for the given chapterId
     axios
-      .get(`https://studyapna.onrender.com/videos/${id}`)
+      .get(`https://studyapna-backend.onrender.com/${id}`)
       .then((response) => {
         setVideos(response.data);
         setLoading(false);

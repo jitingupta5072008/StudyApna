@@ -14,7 +14,7 @@ const AddVideo = () => {
 
   // Fetch all classes on component load
   useEffect(() => {
-    axios.get("https://studyapna.onrender.com/classes").then((response) => {
+    axios.get("https://studyapna-backend.onrender.com/classes").then((response) => {
       setClasses(response.data);
     });
   }, []);
@@ -23,7 +23,7 @@ const AddVideo = () => {
   useEffect(() => {
     if (selectedClass) {
       axios
-        .get(`https://studyapna.onrender.com/subjects/${selectedClass}`)
+        .get(`https://studyapna-backend.onrender.com/subjects/${selectedClass}`)
         .then((response) => {
           setSubjects(response.data);
           setChapters([]); // Clear chapters when class changes
@@ -40,7 +40,7 @@ const AddVideo = () => {
   useEffect(() => {
     if (selectedSubject) {
       axios
-        .get(`https://studyapna.onrender.com/chapters/${selectedSubject}`)
+        .get(`https://studyapna-backend.onrender.com/chapters/${selectedSubject}`)
         .then((response) => {
           setChapters(response.data);
           setSelectedChapter("");
@@ -60,7 +60,7 @@ const AddVideo = () => {
     }
 
     axios
-      .post("https://studyapna.onrender.com/videos", {
+      .post("https://studyapna-backend.onrender.com/videos", {
         title: videoTitle,
         url: videoUrl,
         thumbnail: videoThumbnail,
